@@ -1,6 +1,7 @@
 FROM maven:3.6.3-jdk-8 AS build
-COPY /var/lib/jenkins/workspace/pspipeline/src /usr/src/app/src
-COPY /var/lib/jenkins/workspace/pspipeline/pom.xml /usr/src/app
+COPY pspipeline/src /usr/src/app/src
+COPY pspipeline/pom.xml /usr/src/app
+RUN pwd
 RUN echo $WORKSPACE
 RUN ls 
 RUN mvn -f /usr/src/app/pom.xml clean package
